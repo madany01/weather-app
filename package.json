@@ -1,0 +1,30 @@
+{
+	"name": "weather-app",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack --progress",
+		"watch": "webpack --progress --watch",
+		"serve": "webpack serve --open"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/madany01/weather-app.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/madany01/weather-app/issues"
+	},
+	"homepage": "https://github.com/madany01/weather-app#readme",
+	"devDependencies": {
+		"eslint": "^8.9.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-plugin-import": "^2.25.4",
+		"webpack": "^5.69.1",
+		"webpack-cli": "^4.9.2",
+		"webpack-dev-server": "^4.7.4"
+	}
+}
