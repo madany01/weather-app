@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather</title>
+		<link rel="stylesheet" href="./assest/css/style.css" />
+		<link rel="stylesheet" href="./assest/css/weather-icons.min.css" />
+		<link rel="stylesheet" href="./assest/css/weather-icons-wind.min.css" />
+		<script src="./bundle.js" defer></script>
+	</head>
+	<body>
+		<header class="main-header">
+			<div class="logo">Weather Forecast</div>
+		</header>
+
+		<main>
+			<div class="top-ctr">
+				<div class="form-ctr">
+					<form action="#" novalidate>
+						<label for="cityName">city</label>
+						<input type="text" id="cityName" placeholder="aleppo" autofocus required spellcheck />
+						<div class="error-msg"></div>
+						<div class="fieldset-unit">
+							<div>
+								<label for="unitC">Celsius</label>
+								<input type="radio" name="unit" id="unitC" value="c" checked />
+							</div>
+							<div>
+								<label for="unitF">Fahrenheit</label>
+								<input type="radio" name="unit" id="unitF" value="f" />
+							</div>
+						</div>
+						<button type="submit">Search</button>
+					</form>
+				</div>
+
+				<div class="gif-ctr">
+					<img src="#" class="weather-gif" alt="placeholder for weather-related gif image" />
+				</div>
+
+				<div class="top-right-ctr">
+					<div class="initial-content">
+						<i class="wi wi-owm-day-800"></i>
+					</div>
+
+					<div class="spinner"></div>
+
+					<div class="main-result-ctr d-none">
+						<div class="row">
+							<div class="location-ctr">
+								<svg
+									xmlns="http://www.w3.org/2000/svg"
+									fill="currentColor"
+									class="bi bi-geo-alt-fill location-icon"
+									viewBox="0 0 16 16"
+								>
+									<path
+										d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
+									/>
+								</svg>
+								<span class="location">Gotham DC, Gotham</span>
+							</div>
+							<div class="date">today</div>
+						</div>
+
+						<div class="row main-temp-row">
+							<div class="col">
+								<div class="main-temp-ctr">
+									<span class="main-temp">30</span>
+									<span class="main-temp-unit unit-c"></span>
+								</div>
+								<div class="weather-description">clear sunny</div>
+							</div>
+							<div class="col main-temp-icon">
+								<i class="wi wi-owm-day-800"></i>
+							</div>
+						</div>
+
+						<div class="row secondary-temp-ctr">
+							<div class="col">
+								<span class="label">feels</span>
+								<span class="degree-ctr">
+									<span class="degree feel-temp">25</span>
+									<span class="unit unit-c"></span>
+								</span>
+							</div>
+
+							<div class="col">
+								<span class="label">min</span>
+								<span class="degree-ctr">
+									<span class="degree min-temp">24</span>
+									<span class="unit unit-c"></span>
+								</span>
+							</div>
+
+							<div class="col">
+								<span class="label">max</span>
+								<span class="degree-ctr">
+									<span class="degree max-temp">28</span>
+									<span class="unit unit-c"></span>
+								</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="notification not-found-city d-none">
+						<div class="title">❗ City not found</div>
+						<div class="details">couldn't find your city, check your spelling</div>
+					</div>
+
+					<div class="notification connection-err d-none">
+						<div class="title">💥 Connection Error</div>
+						<div class="details">couldn't connect, check your internet connection and try again</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="cards secondary-results-ctr hidden">
+				<div class="card">
+					<i class="icon wi wi-humidity"></i>
+					<div class="title">humidity</div>
+					<div class="value-ctr">
+						<span class="value humidity">100</span>
+						<span class="unit">%</span>
+					</div>
+				</div>
+				<div class="card">
+					<i class="icon wi wi-barometer"></i>
+					<div class="title">pressure</div>
+					<div class="value-ctr">
+						<span class="value pressure">1233</span>
+						<span class="unit">hPa</span>
+					</div>
+				</div>
+				<div class="card">
+					<i class="icon wi wi-cloud"></i>
+					<div class="title">Cloudiness</div>
+					<div class="value-ctr">
+						<span class="value cloud">89</span>
+						<span class="unit">%</span>
+					</div>
+				</div>
+				<div class="card">
+					<i class="icon wi">👁</i>
+					<div class="title">visibility</div>
+					<div class="value-ctr">
+						<span class="value visibility">89</span>
+						<span class="unit">meter</span>
+					</div>
+				</div>
+				<div class="card wind-ctr">
+					<i class="icon wi wi-wind towards-90-deg"></i>
+					<div class="title">wind</div>
+					<div class="value-ctr">
+						<span class="value wind-speed">123</span>
+						<span class="unit">meter/sec</span>
+					</div>
+					<div class="value-ctr">
+						<span class="value wind-degree">30</span>
+						<span class="unit">degree</span>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer>
+			copyright &copy; 2022 Ahmad Madany
+			<a href="https://github.com/madany01/weather-app" class="github-repo">
+				<svg
+					aria-hidden="true"
+					viewBox="0 0 16 16"
+					version="1.1"
+					data-view-component="true"
+					class="octicon octicon-mark-github d-block mr-2 float-left"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"
+					></path>
+				</svg>
+			</a>
+		</footer>
+	</body>
+</html>

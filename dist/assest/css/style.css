@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*,
+*::before,
+*::after {
+	padding: 0;
+	margin: 0;
+	border: 0 solid transparent;
+	box-sizing: inherit;
+	font-family: inherit;
+}
+
+button {
+	cursor: pointer;
+}
+
+input,
+select,
+textarea {
+	color: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	font-size: 62.5%;
+}
+
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-color: #000;
+	background-image: linear-gradient(to bottom right, #151638d1, #0d1e3db0);
+	font-family: 'Roboto', sans-serif;
+}
+
+/* modifiers */
+
+.d-none {
+	display: none !important;
+}
+
+.hidden {
+	opacity: 0;
+	pointer-events: none;
+	visibility: hidden;
+}
+
+/* header */
+
+.main-header {
+	color: #fff;
+	font-size: 1.8rem;
+	font-weight: 500;
+	font-style: italic;
+	display: flex;
+	padding: 1rem 1.6rem;
+	background: rgba(0, 0, 0, 0.199);
+}
+
+/* main */
+
+main {
+	flex: 1;
+	max-width: 100rem;
+	margin: 0 auto;
+	padding: 3.2rem;
+}
+
+.top-ctr {
+	display: grid;
+	grid-template-rows: 1.2fr 1fr;
+	grid-template-columns: 1fr 4fr;
+	max-height: 41rem;
+	gap: 3.2rem;
+	margin-bottom: 3.6rem;
+}
+
+/* form */
+
+.form-ctr {
+	background-color: #171829;
+	padding: 1.8rem;
+	border-radius: 0.8rem;
+	max-width: 36rem;
+	box-shadow: 0 0 4px 0px #2baaff4d;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+label {
+	color: #aaa;
+	font-size: 1.5rem;
+	font-weight: 500;
+	text-transform: capitalize;
+}
+
+input {
+	border-radius: 0.8rem;
+	padding: 0.6rem 1.6rem;
+	background-color: transparent;
+	border: 0.1rem solid royalblue;
+	color: #eaeaea;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+.error-msg {
+	min-height: 2rem;
+	align-self: end;
+	font-size: 1.4rem;
+	font-weight: 500;
+	color: tomato;
+}
+
+.fieldset-unit {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+button[type='submit'] {
+	border-radius: 0.8rem;
+	padding: 0.8rem 1.4rem;
+	font-weight: 500;
+	font-size: 1.6rem;
+	margin-top: 0.8rem;
+	background-color: #2baaff;
+	color: #111;
+	align-self: end;
+}
+
+/* gif ctr */
+.gif-ctr {
+	overflow: hidden;
+	border-radius: 0.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.weather-gif {
+	background-color: transparent;
+	height: 100%;
+	width: auto;
+}
+
+.weather-gif[src='#'] {
+	visibility: hidden;
+	pointer-events: none;
+}
+
+/* spinner */
+.spinner {
+	position: absolute;
+	width: 20rem;
+	height: 20rem;
+	border-radius: 50%;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border: 0.5rem solid #e91e63;
+	border-top-color: #2baaff;
+	border-bottom-color: springgreen;
+	cursor: wait;
+	animation: spinning 2s linear infinite;
+	display: none;
+}
+
+@keyframes spinning {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+.spinner.spinning {
+	display: block;
+}
+
+/* main result */
+.top-right-ctr {
+	grid-column: 2;
+	grid-row: 1 / -1;
+	position: relative;
+	overflow: hidden;
+	padding: 3.2rem;
+	background-color: #1b1c48;
+	border-radius: 0.8rem;
+	transition: all 0.3s;
+}
+
+.initial-content {
+	height: 100%;
+	font-size: 20rem;
+	color: #e91e63;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	animation: animate-initial-content 30s ease-in-out 0s infinite;
+}
+
+@keyframes animate-initial-content {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+.main-result-ctr {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.6rem;
+	color: #ccc;
+}
+.main-result-ctr .row {
+	flex: 1;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/* row: location date */
+.location-ctr {
+	display: flex;
+	gap: 0.8rem;
+	align-items: center;
+	color: #cb4ec8;
+}
+.location-icon {
+	width: 1.6rem;
+}
+.location {
+	font-size: 1.6rem;
+	font-weight: 500;
+}
+
+.date {
+	color: #f9ffff;
+	font-size: 1.8rem;
+	font-weight: 300;
+	text-transform: capitalize;
+}
+/* row: temp + icon */
+.main-temp-row {
+	text-align: center;
+}
+.main-temp-row .col {
+	flex: 1;
+}
+
+.main-temp-ctr {
+	display: flex;
+	align-items: start;
+	gap: 1.2rem;
+	font-size: 7rem;
+	font-weight: 900;
+	text-align: start;
+	color: #fefefe;
+}
+.main-temp-unit {
+	font-size: 4rem;
+	font-weight: 700;
+	color: #f2cb304a;
+}
+.unit-c::after {
+	content: '°C';
+}
+.unit-f::after {
+	content: '°F';
+}
+.main-temp-icon {
+	font-size: 21rem;
+	font-weight: 700;
+	color: #f2cb30;
+}
+
+.weather-description {
+	font-size: 2.4rem;
+	font-weight: 500;
+	text-transform: capitalize;
+	color: #dfe2e5;
+}
+/* row: secondary info */
+.secondary-temp-ctr .col {
+	display: flex;
+	gap: 0.4rem;
+	align-items: baseline;
+}
+
+.secondary-temp-ctr .label {
+	font-size: 1.4rem;
+	font-weight: 700;
+	color: #555;
+	text-transform: capitalize;
+}
+.secondary-temp-ctr .degree-ctr {
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: #999;
+}
+/* notification messages */
+
+.notification {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2.4rem;
+	padding: 2.4rem;
+}
+.notification .title {
+	font-size: 2rem;
+	font-weight: 500;
+	text-align: center;
+	color: tomato;
+}
+.notification .details {
+	font-size: 1.8rem;
+	color: #bdb4b3;
+}
+/* result numbers */
+
+.cards {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 1.6rem;
+	transition: all 0.3s;
+}
+
+.card {
+	width: 18rem;
+	height: 18rem;
+	padding: 1.6rem;
+	border-radius: 50%;
+	background-color: #171829;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.8rem;
+}
+.card .icon {
+	font-size: 3.6rem;
+	color: #2baaff;
+}
+.card .title {
+	font-size: 1.6rem;
+	font-weight: 500;
+	color: #fedfad;
+}
+.card .value {
+	font-size: 1.8rem;
+	font-weight: 700;
+	color: #e2e2e2;
+}
+.unit {
+	font-size: 1.3rem;
+	font-weight: 700;
+	color: #777;
+}
+/* footer */
+
+footer {
+	background-color: #0b0c1e;
+	border-top: 0.1rem solid #0f0f0f;
+	color: #555;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.8rem;
+	font-size: 1.2rem;
+	font-weight: 500;
+}
+
+.github-repo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	background-color: #2baaff;
+	overflow: hidden;
+}
