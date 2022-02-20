@@ -1,5 +1,7 @@
 # weather-app
 
+**[live preview](https://madany01.github.io/weather-app/)**
+
 - weather forecasting site
 - search for a specific location and toggle displaying the data in Fahrenheit/Celsius
 - add image that describes the weather
